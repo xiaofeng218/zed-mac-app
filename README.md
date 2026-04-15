@@ -76,5 +76,5 @@ python client.py \
 ## Notes
 
 - The native client build is self-contained inside this repository because `zed-open-capture-mac` is vendored under `third_party/`.
-- Server inference still expects the model runtime used by `pipeline.py`, including the `Utils` and `core.utils.utils` modules plus model weights.
+- Server inference expects the model weights plus the model code that is serialized with them, but the local helper utilities previously imported from external `Utils` and `core.utils.utils` modules are now included in this repository.
 - Do not commit `native/build/`, model weights, or local cache files.

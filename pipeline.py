@@ -13,8 +13,7 @@ except Exception:  # pragma: no cover - handled at runtime
     torch = None
 
 try:
-    from Utils import AMP_DTYPE, depth2xyzmap, vis_disparity
-    from core.utils.utils import InputPadder
+    from inference_utils import AMP_DTYPE, InputPadder, depth2xyzmap, vis_disparity
 except Exception:  # pragma: no cover - handled at runtime
     AMP_DTYPE = None
     InputPadder = None
@@ -27,7 +26,7 @@ def _require_model_runtime() -> None:
     if torch is None:
         missing.append("torch")
     if AMP_DTYPE is None or depth2xyzmap is None or vis_disparity is None or InputPadder is None:
-        missing.append("Fast-FoundationStereo runtime modules (Utils, core.utils.utils)")
+        missing.append("local inference helpers")
     if missing:
         raise RuntimeError(
             "Server-side inference dependencies are unavailable: "
