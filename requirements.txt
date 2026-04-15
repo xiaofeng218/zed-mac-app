@@ -1,0 +1,6 @@
+numpy
+opencv-python
+imageio
+websockets
+rerun-sdk
+torch
